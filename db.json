@@ -1,0 +1,60 @@
+{
+  "vehicles": [
+    {
+      "id": "1",
+      "vin": "1NISSANXMN109186",
+      "brand": "Nissan",
+      "year": 2022,
+      "model": "Sentra",
+      "plateNumber": "NIS123",
+      "clientName": "Juan Pérez",
+      "clientPhone": "5512345678",
+      "service": "Servicio General",
+      "observations": "Cliente solicita revisión completa",
+      "createdAt": "2025-05-28T02:33:30.842Z",
+      "status": "Completado"
+    },
+    {
+      "id": "2",
+      "vin": "2HYUNDAIXMN109187",
+      "brand": "Hyundai",
+      "year": 2021,
+      "model": "Elantra",
+      "plateNumber": "HYU789",
+      "clientName": "María García",
+      "clientPhone": "5612345678",
+      "service": "Mantenimiento Preventivo",
+      "observations": "Ruido en frenos delanteros",
+      "createdAt": "2025-05-27T15:45:10.123Z",
+      "status": "Pendiente"
+    },
+    {
+      "id": "3",
+      "vin": "3MAZDA41JXMN109188",
+      "brand": "Mazda",
+      "year": 2020,
+      "model": "Mazda 3",
+      "plateNumber": "MAZ456",
+      "clientName": "Carlos López",
+      "clientPhone": "5510987654",
+      "service": "Servicio General",
+      "observations": "",
+      "createdAt": "2025-05-26T09:20:45.678Z",
+      "status": "Completado"
+    },
+    {
+      "id": "4",
+      "vin": "4HYUNDAIXMN109189",
+      "brand": "Hyundai",
+      "year": 2023,
+      "model": "Tucson",
+      "plateNumber": "HYU456",
+      "clientName": "Ana Rodríguez",
+      "clientPhone": "5611122233",
+      "service": "Mantenimiento Preventivo",
+      "observations": "Mantenimiento programado",
+      "createdAt": "2025-05-25T12:00:00.000Z",
+      "status": "Pendiente"
+    }
+  ]
+}
