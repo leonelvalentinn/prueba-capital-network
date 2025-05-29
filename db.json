@@ -55,6 +55,48 @@
       "observations": "Mantenimiento programado",
       "createdAt": "2025-05-25T12:00:00.000Z",
       "status": "Pendiente"
+    },
+    {
+      "id": "221",
+      "brand": "Nissan",
+      "plateNumber": "NXL8325",
+      "model": "Versa",
+      "observations": "sfesrkioll",
+      "clientName": "Miguel",
+      "clientPhone": "5514476309",
+      "service": "m f",
+      "vin": "1HGBH41JXMN109100",
+      "year": 2025,
+      "createdAt": "2025-05-28T17:24:14.532Z",
+      "status": "Pendiente"
+    },
+    {
+      "id": "305",
+      "brand": "Hyundai",
+      "plateNumber": "JHG1238",
+      "model": "hyundai",
+      "observations": "Rechinan los frenos",
+      "clientName": "Miguel Ortiz",
+      "clientPhone": "5547859865",
+      "service": "Servicio general",
+      "vin": "1HGBH41JXMN109105",
+      "year": 2025,
+      "createdAt": "2025-05-29T03:46:00.436Z",
+      "status": "Completado"
+    },
+    {
+      "id": "631",
+      "brand": "Mazda",
+      "plateNumber": "NXL8308",
+      "model": "Mazda 3",
+      "observations": "Rechina la reversa",
+      "clientName": "Miguel Ortiz",
+      "clientPhone": "5547859865",
+      "service": "Servicio General",
+      "vin": "1HGBH41JMN1091700",
+      "year": 2024,
+      "createdAt": "2025-05-29T05:51:20.085Z",
+      "status": "Completado"
     }
   ]
 }
