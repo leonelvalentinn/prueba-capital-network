@@ -1,3 +1,4 @@
+import { LightStatus } from '@/app/const/inspectionStatus'
 import { addToast } from '@heroui/react'
 import { redirect, usePathname } from 'next/navigation'
 import { FormEvent, useState } from 'react'
@@ -9,26 +10,18 @@ export default function useInspectionForm(inspectionPoints: {
   tirePressure: boolean
 }) {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [frontLightsStatus, setFrontLightsStatus] = useState<
-    'Buen Estado' | 'Cambio Recomendado' | 'Requiere Cambio' | ''
-  >('')
-  const [rearLightsStatus, setRearLightsStatus] = useState<
-    'Buen Estado' | 'Cambio Recomendado' | 'Requiere Cambio' | ''
-  >('')
+  const [frontLightsStatus, setFrontLightsStatus] = useState<LightStatus | ''>('')
+  const [rearLightsStatus, setRearLightsStatus] = useState<LightStatus | ''>('')
 
   const pathname = usePathname()
 
   const carId = pathname.split('/').pop() || ''
 
-  const handleFrontLightsChange = (
-    status: 'Buen Estado' | 'Cambio Recomendado' | 'Requiere Cambio'
-  ) => {
+  const handleFrontLightsChange = (status: LightStatus | '') => {
     setFrontLightsStatus(status)
   }
 
-  const handleRearLightsChange = (
-    status: 'Buen Estado' | 'Cambio Recomendado' | 'Requiere Cambio'
-  ) => {
+  const handleRearLightsChange = (status: LightStatus | '') => {
     setRearLightsStatus(status)
   }
 

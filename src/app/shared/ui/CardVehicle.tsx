@@ -34,7 +34,7 @@ export const CardVehicle = ({ vehicleData }: { vehicleData: Vehicle }) => {
           <div className='flex items-center gap-2 text-sm text-neutral-800'>
             <CarIcon className='h-4 w-4' />
             <span className='text-neutral-800'>
-              {vehicleData.year} • {vehicleData.plateNumber}
+              {vehicleData.year} • {vehicleData.licensePlate}
             </span>
           </div>
 

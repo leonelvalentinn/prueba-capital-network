@@ -18,7 +18,7 @@ export const CardInspect = ({
           {title}
         </h3>
       </CardHeader>
-      <CardBody>{children}</CardBody>
+      <CardBody className='overflow-y-hidden'>{children}</CardBody>
     </Card>
   )
 }

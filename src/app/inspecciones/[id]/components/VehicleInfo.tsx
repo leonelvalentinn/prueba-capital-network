@@ -2,7 +2,7 @@ import { CalendarIcon, CarIcon, PhoneIcon, UserIcon, WrenchIcon } from '@/app/sh
 import { CardInspect } from './CardInspect'
 import { Vehicle } from '@/app/types/vehicle.interface'
 import { Divider } from '@heroui/react'
-import { formatDate, formatDateTime } from '@/app/utils/utils'
+import { formatDate, formatDateTime } from '@/app/utils/formatDate'
 
 export const VehicleInfo = ({ carData }: { carData: Vehicle | null }) => {
   return (
@@ -31,7 +31,7 @@ export const VehicleInfo = ({ carData }: { carData: Vehicle | null }) => {
                 </div>
                 <div>
                   <span className='text-xs font-semibold text-neutral-600'>Placa</span>
-                  <p className='font-semibold'>{carData.plateNumber}</p>
+                  <p className='font-semibold'>{carData.licensePlate}</p>
                 </div>
                 <div className='col-span-2'>
                   <span className='text-xs font-semibold text-neutral-600'>VIN</span>

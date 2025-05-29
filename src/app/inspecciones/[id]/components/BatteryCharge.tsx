@@ -1,6 +1,8 @@
 import { BatteryIcon } from '@/app/shared/ui/icons/BatteryIcon'
 import { CardInspect } from './CardInspect'
-import { Slider } from '@heroui/react'
+import { Accordion, AccordionItem, Slider, Textarea } from '@heroui/react'
+import { CameraIcon } from '@/app/shared/ui/icons'
+import { FileDrop } from '@/app/shared/ui/FileDrop'
 
 export const BatteryCharge = () => {
   return (
@@ -49,6 +51,33 @@ export const BatteryCharge = () => {
         size='sm'
         step={0.01}
       />
+
+      <Accordion
+        variant='splitted'
+        className='px-0 mt-4 text-neutral-800'
+        itemClasses={{
+          title: 'text-neutral-800',
+        }}
+        fullWidth
+      >
+        <AccordionItem
+          key='1'
+          aria-label='Evidencia Fotográfica'
+          className='rounded-lg text-neutral-800'
+          title='Evidencia Fotográfica'
+          startContent={<CameraIcon className='text-neutral-800 w-6 h-6' />}
+        >
+          <FileDrop />
+          <Textarea
+            className='my-2'
+            radius='sm'
+            name='batteryComments'
+            fullWidth
+            label='Comentarios de la Inspección'
+            placeholder='Describe los hallazgos, condiciones observadas, recomendaciones...'
+          />
+        </AccordionItem>
+      </Accordion>
     </CardInspect>
   )
 }

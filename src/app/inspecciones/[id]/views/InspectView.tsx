@@ -32,7 +32,7 @@ export const InspectView = () => {
       ) : (
         <div className='w-full flex flex-col gap-6'>
           <VehicleInfo carData={carData} />
-          <span className='flex items-center gap-4'>
+          <span className='flex flex-col items-center gap-4 md:flex-row'>
             <h2 className='text-2xl font-bold text-neutral-50'>Formulario de inspección</h2>
             <Chip variant='bordered'>Puntos específicos para {carData?.brand}</Chip>
           </span>

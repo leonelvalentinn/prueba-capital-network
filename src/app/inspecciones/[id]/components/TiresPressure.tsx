@@ -1,7 +1,8 @@
-import { TireIcon } from '@/app/shared/ui/icons'
+import { CameraIcon, TireIcon } from '@/app/shared/ui/icons'
 import { CardInspect } from './CardInspect'
-import { Input } from '@heroui/react'
+import { Accordion, AccordionItem, Input, Textarea } from '@heroui/react'
 import { INPUTS_TIRES_FRONT, INPUTS_TIRES_REAR } from '@/app/const/inputs'
+import { FileDrop } from '@/app/shared/ui/FileDrop'
 
 export const TiresPressure = ({}) => {
   return (
@@ -10,7 +11,6 @@ export const TiresPressure = ({}) => {
       icon={<TireIcon className='text-blue-600' />}
     >
       <div className='grid grid-cols-2 gap-6'>
-        {/* Front Tires */}
         <div className='space-y-4'>
           <h4 className='font-medium text-neutral-700'>Llantas Frontales</h4>
           <div className='space-y-3'>
@@ -36,7 +36,6 @@ export const TiresPressure = ({}) => {
           </div>
         </div>
 
-        {/* Rear Tires */}
         <div className='space-y-4'>
           <h4 className='font-medium text-neutral-700'>Llantas Posteriores</h4>
           <div className='space-y-3'>
@@ -67,6 +66,33 @@ export const TiresPressure = ({}) => {
           <strong>PSI:</strong> Pounds per square inch (Libras por pulgada cuadrada)
         </p>
       </div>
+
+      <Accordion
+        variant='splitted'
+        className='px-0 mt-4 text-neutral-800'
+        itemClasses={{
+          title: 'text-neutral-800',
+        }}
+        fullWidth
+      >
+        <AccordionItem
+          key='1'
+          aria-label='Evidencia Fotográfica'
+          className='rounded-lg text-neutral-800'
+          title='Evidencia Fotográfica'
+          startContent={<CameraIcon className='text-neutral-800 w-6 h-6' />}
+        >
+          <FileDrop />
+          <Textarea
+            className='my-2'
+            radius='sm'
+            name='tiresComments'
+            fullWidth
+            label='Comentarios de la Inspección'
+            placeholder='Describe los hallazgos, condiciones observadas, recomendaciones...'
+          />
+        </AccordionItem>
+      </Accordion>
     </CardInspect>
   )
 }

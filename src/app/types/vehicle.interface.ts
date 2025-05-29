@@ -4,7 +4,7 @@ export interface Vehicle {
   brand: string
   year: number
   model: string
-  plateNumber: string
+  licensePlate: string
   clientName: string
   clientPhone: string
   service: string
