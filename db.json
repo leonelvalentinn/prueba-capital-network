@@ -6,7 +6,7 @@
       "brand": "Nissan",
       "year": 2022,
       "model": "Sentra",
-      "plateNumber": "NIS123",
+      "licensePlate": "NIS123",
       "clientName": "Juan Pérez",
       "clientPhone": "5512345678",
       "service": "Servicio General",
@@ -20,7 +20,7 @@
       "brand": "Hyundai",
       "year": 2021,
       "model": "Elantra",
-      "plateNumber": "HYU789",
+      "licensePlate": "HYU789",
       "clientName": "María García",
       "clientPhone": "5612345678",
       "service": "Mantenimiento Preventivo",
@@ -34,13 +34,13 @@
       "brand": "Mazda",
       "year": 2020,
       "model": "Mazda 3",
-      "plateNumber": "MAZ456",
+      "licensePlate": "MAZ456",
       "clientName": "Carlos López",
       "clientPhone": "5510987654",
       "service": "Servicio General",
       "observations": "",
       "createdAt": "2025-05-26T09:20:45.678Z",
-      "status": "Completado"
+      "status": "Pendiente"
     },
     {
       "id": "4",
@@ -48,7 +48,7 @@
       "brand": "Hyundai",
       "year": 2023,
       "model": "Tucson",
-      "plateNumber": "HYU456",
+      "licensePlate": "HYU456",
       "clientName": "Ana Rodríguez",
       "clientPhone": "5611122233",
       "service": "Mantenimiento Preventivo",
@@ -59,7 +59,7 @@
     {
       "id": "221",
       "brand": "Nissan",
-      "plateNumber": "NXL8325",
+      "licensePlate": "NXL8325",
       "model": "Versa",
       "observations": "sfesrkioll",
       "clientName": "Miguel",
@@ -68,12 +68,12 @@
       "vin": "1HGBH41JXMN109100",
       "year": 2025,
       "createdAt": "2025-05-28T17:24:14.532Z",
-      "status": "Pendiente"
+      "status": "Completado"
     },
     {
       "id": "305",
       "brand": "Hyundai",
-      "plateNumber": "JHG1238",
+      "licensePlate": "JHG1238",
       "model": "hyundai",
       "observations": "Rechinan los frenos",
       "clientName": "Miguel Ortiz",
@@ -87,7 +87,7 @@
     {
       "id": "631",
       "brand": "Mazda",
-      "plateNumber": "NXL8308",
+      "licensePlate": "NXL8308",
       "model": "Mazda 3",
       "observations": "Rechina la reversa",
       "clientName": "Miguel Ortiz",
