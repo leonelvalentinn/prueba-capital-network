@@ -1,6 +1,6 @@
 'use client'
 
-import { INPUTS } from '@/app/const/inputs'
+import { INPUTS, MODELS } from '@/app/const/inputs'
 import { Vehicle } from '@/app/types/vehicle.interface'
 import {
   Button,
@@ -16,6 +16,7 @@ import {
   Textarea,
 } from '@heroui/react'
 import useAddVehicle from '../hooks/useAddVehicle'
+import { useState } from 'react'
 
 export const ModalForm = ({
   isOpen,
@@ -26,10 +27,22 @@ export const ModalForm = ({
   onOpenChange: (isOpen: boolean) => void
   handleSetNewVehicle: (vehicle: Vehicle) => void
 }) => {
+  const [selectedBrand, setSelectedBrand] = useState<string | null>(null)
   const { onSubmit, loading } = useAddVehicle({ onOpenChange, handleSetNewVehicle })
 
+  const getModelsByBrand = (brand: string) => {
+    const models = MODELS.find((model) => model.brand === brand)?.models
+
+    return models || []
+  }
+
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange} size='2xl'>
+    <Modal
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
+      size='2xl'
+      onClose={() => setSelectedBrand(null)}
+    >
       <ModalContent className='bg-[#D4D4D8] text-neutral-800'>
         {(onClose) => (
           <>
@@ -41,22 +54,64 @@ export const ModalForm = ({
               <ModalBody className='w-full grid grid-cols-1 sm:grid-cols-2 gap-4'>
                 {INPUTS.map((input) =>
                   input.options ? (
-                    <Select
-                      isRequired={input.required}
-                      errorMessage={input.errorMessage}
-                      key={input.id}
-                      name={input.name}
-                      className='max-w-xs'
-                      label={input.label}
-                      placeholder={input.placeholder}
-                      radius='sm'
-                    >
-                      {input.options.map((option) => (
-                        <SelectItem key={option} className='text-neutral-800'>
-                          {option}
-                        </SelectItem>
-                      ))}
-                    </Select>
+                    input.name === 'brand' ? (
+                      <Select
+                        isRequired={input.required}
+                        errorMessage={input.errorMessage}
+                        key={input.id}
+                        name={input.name}
+                        className='max-w-xs'
+                        label={input.label}
+                        placeholder={input.placeholder}
+                        radius='sm'
+                        onChange={(e) => setSelectedBrand(e.target.value)}
+                      >
+                        {input.options.map((option) => (
+                          <SelectItem key={option} className='text-neutral-800'>
+                            {option}
+                          </SelectItem>
+                        ))}
+                      </Select>
+                    ) : input.name === 'model' ? (
+                      <Select
+                        isRequired={input.required}
+                        errorMessage={input.errorMessage}
+                        key={input.id}
+                        name={input.name}
+                        className='max-w-xs'
+                        label={input.label}
+                        placeholder={
+                          selectedBrand ? 'Selecciona un modelo' : 'Selecciona una marca primero'
+                        }
+                        radius='sm'
+                        isDisabled={!selectedBrand}
+                      >
+                        {selectedBrand
+                          ? getModelsByBrand(selectedBrand).map((model) => (
+                              <SelectItem key={model} className='text-neutral-800'>
+                                {model}
+                              </SelectItem>
+                            ))
+                          : null}
+                      </Select>
+                    ) : (
+                      <Select
+                        isRequired={input.required}
+                        errorMessage={input.errorMessage}
+                        key={input.id}
+                        name={input.name}
+                        className='max-w-xs'
+                        label={input.label}
+                        placeholder={input.placeholder}
+                        radius='sm'
+                      >
+                        {input.options.map((option) => (
+                          <SelectItem key={option} className='text-neutral-800'>
+                            {option}
+                          </SelectItem>
+                        ))}
+                      </Select>
+                    )
                   ) : input.type === 'text' ? (
                     <Input
                       key={input.id}
@@ -81,7 +136,14 @@ export const ModalForm = ({
                 )}
               </ModalBody>
               <ModalFooter className='w-full'>
-                <Button color='danger' variant='light' onPress={onClose}>
+                <Button
+                  color='danger'
+                  variant='light'
+                  onPress={() => {
+                    onClose()
+                    setSelectedBrand(null)
+                  }}
+                >
                   Cerrar
                 </Button>
                 <Button

@@ -1,4 +1,6 @@
 import { Vehicle } from '@/app/types/vehicle.interface'
+import { phoneRegex, vinRegex } from '@/app/utils/utils'
+import { addToast } from '@heroui/react'
 import { FormEvent, useState } from 'react'
 
 export default function useAddVehicle({
@@ -36,7 +38,6 @@ export default function useAddVehicle({
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-
     const dataObj = Object.fromEntries(new FormData(e.currentTarget))
 
     const data: Pick<
@@ -62,9 +63,29 @@ export default function useAddVehicle({
       year: Number(dataObj.year),
     }
 
+    if (!phoneRegex.test(data.clientPhone)) {
+      addToast({
+        title: 'Número de teléfono inválido',
+        description: 'El número de teléfono debe tener 10 dígitos.',
+        color: 'danger',
+      })
+      setLoading(false)
+      return
+    }
+
+    if (!vinRegex.test(data.vin)) {
+      addToast({
+        title: 'VIN inválido',
+        description: 'El VIN debe tener 17 caracteres alfanuméricos, sin I, O, Q, ó Ñ.',
+        color: 'danger',
+      })
+      setLoading(false)
+      return
+    }
+
     const newVehicle: Vehicle = {
       ...data,
-      id: parseInt((Math.random() * 1000).toString(), 10),
+      id: `${parseInt((Math.random() * 1000).toString(), 10)}`,
       createdAt: new Date().toISOString(),
       status: 'Pendiente',
     }

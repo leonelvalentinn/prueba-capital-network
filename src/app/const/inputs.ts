@@ -1,5 +1,11 @@
 import { Input } from '../types/input.interface'
 
+export const MODELS: { brand: string; models: string[] }[] = [
+  { brand: 'Nissan', models: ['Versa', 'Sentra', 'Altima', 'Kicks'] },
+  { brand: 'Mazda', models: ['Mazda 2', 'Mazda 3', 'Mazda 6', 'CX-3'] },
+  { brand: 'Hyundai', models: ['Elantra', 'Tucson', 'Santa Fe', 'Creta'] },
+]
+
 export const INPUTS: Input[] = [
   {
     id: 1,
@@ -24,19 +30,21 @@ export const INPUTS: Input[] = [
     id: 3,
     name: 'model',
     label: 'Modelo',
-    type: 'text',
+    type: 'select',
     placeholder: 'Ingresa el modelo del vehículo',
     required: true,
     errorMessage: 'Campo requerido',
+    options: [],
   },
   {
     id: 4,
     name: 'year',
     label: 'Año',
-    type: 'text',
+    type: 'select',
     placeholder: 'Ingresa el año del vehículo',
     required: true,
     errorMessage: 'Campo requerido',
+    options: ['2025', '2024', '2023', '2022', '2021', '2020'],
   },
   {
     id: 5,
@@ -69,10 +77,16 @@ export const INPUTS: Input[] = [
     id: 8,
     name: 'service',
     label: 'Servicio',
-    type: 'text',
+    type: 'select',
     placeholder: '¿Por qué motivo ingresa al taller?',
     required: true,
     errorMessage: 'Campo requerido',
+    options: [
+      'Servicio General',
+      'Cambio de Aceite y Filtros',
+      'Revisión de Frenos',
+      'Diagnóstico por Ruido o Vibración',
+    ],
   },
   {
     id: 9,

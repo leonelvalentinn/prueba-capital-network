@@ -1,5 +1,5 @@
 export interface Vehicle {
-  id: number
+  id: string
   vin: string
   brand: string
   year: number
