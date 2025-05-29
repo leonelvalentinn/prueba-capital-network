@@ -15,6 +15,3 @@ export const formatDateTime = (dateString: string) => {
 
   return `${hours}:${minutes}`
 }
-
-export const phoneRegex = /^[0-9]{10}$/
-export const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/
